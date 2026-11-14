@@ -1,0 +1,318 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-heading: 'Instrument Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+@layer base {
+  /* Fluid responsive typography baseline across device form factors */
+  html {
+    font-size: 17px; /* Mobile baseline: enlarged slightly for high-DPI smartphone legibility */
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  /* Tablet / iPad viewports (641px – 1024px) */
+  @media screen and (min-width: 641px) {
+    html {
+      font-size: 16px; /* Standard tablet baseline */
+    }
+  }
+
+  /* Desktop viewports (1025px – 1440px) */
+  @media screen and (min-width: 1025px) {
+    html {
+      font-size: 16px; /* Standard desktop baseline */
+    }
+  }
+
+  /* Large monitors & presentation displays (1441px – 1920px) */
+  @media screen and (min-width: 1441px) {
+    html {
+      font-size: 16.5px;
+    }
+  }
+
+  /* Ultra-wide & 4K defense hall screens (> 1920px) */
+  @media screen and (min-width: 1921px) {
+    html {
+      font-size: 17.5px;
+    }
+  }
+
+  html,
+  body {
+    overflow-x: hidden;
+  }
+
+  body {
+    margin: 0;
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #F7F5F0; /* Warm Ivory */
+    color: #111827; /* Deep Ink */
+    letter-spacing: -0.011em;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  /* Prevent iOS Safari auto-zoom on form controls while keeping legible touch fields */
+  @media screen and (max-width: 767px) {
+    input,
+    select,
+    textarea {
+      font-size: 16px !important;
+    }
+  }
+
+  /* Mobile Microcopy Legibility Guard (< 640px) */
+  @media screen and (max-width: 640px) {
+    /* Lift sub-12px microcopy to readable floors on small mobile viewports */
+    .text-\[9px\],
+    .text-\[10px\] {
+      font-size: 12px !important;
+      line-height: 1.25rem !important;
+    }
+
+    .text-\[11px\] {
+      font-size: 13px !important;
+      line-height: 1.3rem !important;
+    }
+
+    .text-xs {
+      font-size: 14px !important;
+      line-height: 1.35rem !important;
+    }
+
+    /* Enlarge action buttons on mobile for effortless tapping & reading */
+    .editorial-btn-primary,
+    .editorial-btn-dark,
+    .editorial-btn-secondary {
+      font-size: 14.5px !important;
+      padding: 0.75rem 1.25rem !important;
+      min-height: 44px;
+    }
+
+    /* Badges & status pills on mobile */
+    .rounded-badge {
+      font-size: 11.5px !important;
+      padding: 0.2rem 0.55rem !important;
+    }
+
+    /* Pass numbers & codes */
+    .tabular-nums {
+      letter-spacing: 0.05em;
+    }
+  }
+
+  /* Tablet Screen Optimizations (641px to 1024px) */
+  @media screen and (min-width: 641px) and (max-width: 1024px) {
+    .text-\[9px\],
+    .text-\[10px\] {
+      font-size: 11.5px !important;
+      line-height: 1.2rem !important;
+    }
+
+    .text-\[11px\] {
+      font-size: 12.5px !important;
+      line-height: 1.25rem !important;
+    }
+
+    .text-xs {
+      font-size: 13.5px !important;
+      line-height: 1.3rem !important;
+    }
+  }
+
+  code, pre, .font-mono, [data-tabular="true"] {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.015em;
+  }
+
+  /* Numbers, timestamps, metrics & tabular tables */
+  table, td, th, .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+
+  h1, h2, h3, h4, .font-display, .font-heading {
+    font-family: var(--font-heading);
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    color: #111827;
+  }
+}
+
+@layer components {
+  /* Editorial card & borders */
+  .editorial-card {
+    background-color: #FFFFFF;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    box-shadow: 0 1px 3px 0 rgba(17, 24, 39, 0.04);
+  }
+
+  .editorial-btn-primary {
+    background-color: #F06436; /* Tangerine Accent */
+    color: #FFFFFF;
+    border: 1px solid #F06436;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.9375rem; /* 15px */
+    padding: 0.65rem 1.25rem;
+    transition: all 150ms ease-in-out;
+  }
+  .editorial-btn-primary:hover {
+    background-color: #D85428;
+    border-color: #D85428;
+  }
+
+  .editorial-btn-dark {
+    background-color: #111827;
+    color: #FFFFFF;
+    border: 1px solid #111827;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.9375rem; /* 15px */
+    padding: 0.65rem 1.25rem;
+    transition: all 150ms ease-in-out;
+  }
+  .editorial-btn-dark:hover {
+    background-color: #1F2937;
+    border-color: #1F2937;
+  }
+
+  .editorial-btn-secondary {
+    background-color: #FFFFFF;
+    color: #111827;
+    border: 1px solid #D1D5DB;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.9375rem; /* 15px */
+    padding: 0.65rem 1.25rem;
+    transition: all 150ms ease-in-out;
+  }
+  .editorial-btn-secondary:hover {
+    background-color: #F9FAFB;
+    border-color: #9CA3AF;
+  }
+}
+
+/* Subtle scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #D1D5DB;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #9CA3AF;
+}
+
+@media print {
+  @page {
+    size: auto;
+    margin: 8mm;
+  }
+
+  /* 1. Reset root canvas */
+  html,
+  body {
+    background: #FFFFFF !important;
+    background-color: #FFFFFF !important;
+    color: #111827 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    height: auto !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* 2. Hide all page elements by default */
+  body * {
+    visibility: hidden !important;
+  }
+
+  /* 3. Make ONLY the printable-ticket voucher visible */
+  .printable-ticket,
+  .printable-ticket * {
+    visibility: visible !important;
+  }
+
+  /* 4. Fit cleanly into a single compact print page without bottom cutoff or multiple pages */
+  .printable-ticket {
+    position: absolute !important;
+    left: 50% !important;
+    top: 0 !important;
+    transform: translateX(-50%) !important;
+    max-width: 480px !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+    border: 1px solid #111827 !important;
+    border-radius: 10px !important;
+    box-shadow: none !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    overflow: hidden !important;
+    background: #FFFFFF !important;
+    font-family: var(--font-body) !important;
+  }
+
+  .printable-ticket h1,
+  .printable-ticket h2,
+  .printable-ticket h3,
+  .printable-ticket h4,
+  .printable-ticket .font-display {
+    font-family: var(--font-heading) !important;
+    letter-spacing: -0.02em !important;
+  }
+
+  .printable-ticket .font-mono,
+  .printable-ticket code {
+    font-family: var(--font-mono) !important;
+    font-variant-numeric: tabular-nums !important;
+  }
+
+  /* Compact padding in print */
+  .printable-ticket > div {
+    padding: 1rem 1.25rem !important;
+  }
+
+  .printable-ticket img {
+    max-height: 140px !important;
+    width: auto !important;
+    margin: 0 auto !important;
+  }
+
+  /* 5. Suppress all buttons, links, header, footer, and navigation */
+  .no-print,
+  .no-print *,
+  header,
+  footer,
+  nav,
+  aside,
+  button,
+  a[href] {
+    display: none !important;
+    visibility: hidden !important;
+  }
+
+  /* 6. Clean modal overlay wrapper if printing from popup */
+  .fixed.inset-0 {
+    position: static !important;
+    background: transparent !important;
+    backdrop-filter: none !important;
+    padding: 0 !important;
+  }
+}
