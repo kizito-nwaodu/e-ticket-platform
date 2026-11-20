@@ -17,40 +17,6 @@ A web-based event ticketing and gate validation system built with React, Node.js
 - Dedicated portals for attendees, organizers, gate staff, supervisors, and admins.
 - Attendance export and activity audit logs.
 
-## Setup and Installation
-
-### Prerequisites
-
-- Node.js 18+
-- npm
-
-### Installation
-
-```bash
-# Install dependencies for server and client
-npm run install:all
-
-# Initialize database schema and seed demo records
-cd server
-npx prisma db push
-npm run seed
-cd ..
-```
-
-### Running the Application
-
-Start the backend API (port 5000):
-```bash
-cd server
-npm run dev
-```
-
-Start the frontend client (port 5173):
-```bash
-cd client
-npm run dev
-```
-
 ## Demo Credentials
 
 Default password for all accounts: `Password@123`
